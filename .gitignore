@@ -31,3 +31,7 @@ yarn-error.log*
 
 # turbo
 .turbo
+dev.db*
+.wrangler
+dist
+/apps/web/migrations

@@ -7,6 +7,7 @@
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
     },
     "db:migrate:deploy": {},
+    "db:migrate:dev": {},
     "db:push": {},
     "db:seed": {},
     "dev": {

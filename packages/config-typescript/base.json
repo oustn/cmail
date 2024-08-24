@@ -15,7 +15,11 @@
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "skipLibCheck": true,
-    "strict": true
+    "strict": true,
+    "types": [
+      "node",
+      "@cloudflare/workers-types/2024-07-29"
+    ]
   },
   "exclude": ["node_modules"]
 }

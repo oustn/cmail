@@ -1,20 +1,36 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
-  referentialIntegrity = "prisma"
-}
-
 generator client {
-  provider = "prisma-client-js"
-  previewFeatures = ["referentialIntegrity"]
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
 }
 
-model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Email {
+  id          String   @id @default(cuid())
+  messageFrom String
+  messageTo   String
+  headers     String
+  from        String
+  sender      String?
+  replyTo     String?
+  deliveredTo String?
+  returnPath  String?
+  to          String?
+  cc          String?
+  bcc         String?
+  subject     String?
+  messageId   String
+  inReplyTo   String?
+  references  String?
+  date        String?
+  html        String?
+  text        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
