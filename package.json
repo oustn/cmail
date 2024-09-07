@@ -13,7 +13,8 @@
     "prepreview": "node ./var.mjs",
     "preview": "npm run pages:build && wrangler pages dev",
     "predeploy": "npm run generate && wrangler d1 migrations apply cmail --remote",
-    "deploy": "npm run pages:build && wrangler pages deploy",
+    "deploy-worker": "wrangler deploy --config ./email-wrangler.toml",
+    "deploy": "npm run pages:build && wrangler pages deploy && npm run deploy-worker",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts"
   },
   "dependencies": {
@@ -25,11 +26,14 @@
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "cookie": "^0.6.0",
     "drizzle-orm": "^0.33.0",
     "drizzle-zod": "^0.5.1",
     "lucide-react": "^0.436.0",
+    "nanoid": "^5.0.7",
     "next": "14.2.5",
     "next-auth": "5.0.0-beta.20",
+    "postal-mime": "^2.2.7",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.5.2",
@@ -40,6 +44,7 @@
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.2",
     "@cloudflare/workers-types": "^4.20240821.1",
+    "@types/cookie": "^0.6.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

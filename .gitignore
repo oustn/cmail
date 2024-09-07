@@ -39,4 +39,5 @@ next-env.d.ts
 .wrangler
 .dev.vars
 wrangler.toml
+email-wrangler.toml
 .idea
